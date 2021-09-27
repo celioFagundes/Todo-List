@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { useTodo } from '../TodoContext';
 import { Wrapper ,Container,SelectCategory ,FormBox,Option, Label,TaskInput, Button,AddCheck} from './style';
 
-import {MdDirectionsBike} from 'react-icons/md';
+import {FaHeartbeat} from 'react-icons/fa';
 import {IoIosBusiness} from 'react-icons/io';
 import {GrAdd} from 'react-icons/gr'
 import { AiOutlineCheck,AiOutlineClose,AiTwotoneHome} from 'react-icons/ai'
@@ -46,8 +46,8 @@ export default function NewTodoSection(props) {
     const handleChange = input =>{
        setNewTodo(input.target.value)
     }
-    const addTodo = () => {
-        
+    const handleSubmit = e => {
+        e.preventDefault()
         if(todoCategory !== '' && newTodo !== ''){
         setId(id + 1)
         setTodoList([...todoList,
@@ -80,10 +80,10 @@ export default function NewTodoSection(props) {
                    <GrAdd/>
                 </Label>
                 <AddCheck id = 'check' type = 'checkbox'  onChange = {toggleChecked}checked = {checked}></AddCheck>
-                <FormBox>
+                <FormBox onSubmit = {handleSubmit}>
                     <SelectCategory>
-                        <Option onClick = {() => handleSelectedCategory('sports')} className = { todoCategory === 'sports' ? 'onFocus sports' : ''}>
-                            <MdDirectionsBike size = {25} />
+                        <Option onClick = {() => handleSelectedCategory('health')} className = { todoCategory === 'health' ? 'onFocus health' : ''}>
+                            <FaHeartbeat size = {25} />
                         </Option>
                         <Option onClick = {() => handleSelectedCategory('home')} className = { todoCategory === 'home' ? 'onFocus home' : ''}>
                             <AiTwotoneHome size = {25} />
@@ -93,7 +93,7 @@ export default function NewTodoSection(props) {
                         </Option>
                     </SelectCategory>
                     <TaskInput type = 'text' onChange={handleChange} value ={newTodo} placeholder = 'Create a new todo'/>
-                    <Button onClick ={addTodo}  hoverColor ={'#18E038'}>
+                    <Button type = 'submit' hoverColor ={'#18E038'}>
                         <AiOutlineCheck   size = {22}/>
                     </Button>
                     <Button onClick = {handleCancel} hoverColor ={'#EE6352'}>

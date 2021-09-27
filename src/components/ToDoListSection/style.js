@@ -84,7 +84,7 @@ export const  TodoBox  = styled.div`
   color: hsl(0, 0%, 100%);
   cursor:pointer;
 
-  &.sports{
+  &.health{
     border-color:#2BC016;
   }
   &.home{

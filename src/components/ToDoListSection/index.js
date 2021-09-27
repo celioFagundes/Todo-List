@@ -79,8 +79,8 @@ function TodoListSection(props) {
                     </Option>
 
                     <Option 
-                    onClick = {() =>  handleSwitchCategory('sports')} 
-                    className = { currentCategory === 'sports' ? 'onFocus sports' : ''}>
+                    onClick = {() =>  handleSwitchCategory('health')} 
+                    className = { currentCategory === 'health' ? 'onFocus health' : ''}>
                        Health
                     </Option>
 

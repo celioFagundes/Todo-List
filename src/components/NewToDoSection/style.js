@@ -11,7 +11,7 @@ export const Container = styled.div`
     align-items:center;
     padding: 50px 0;
 `;
-export const FormBox = styled.div`
+export const FormBox = styled.form`
     display:flex;
     justify-content:center;
     align-items:center;
@@ -34,7 +34,7 @@ export const Option = styled.button`
 
     &.onFocus{
         border-bottom: 1px solid hsl(0, 0%, 100%);
-        &.sports{
+        &.health{
             color:#2BC016;
         }
         &.home{
