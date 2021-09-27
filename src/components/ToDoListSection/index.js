@@ -13,8 +13,6 @@ function TodoListSection(props) {
     const [editedTodo,setEditedTodo] = useState('')
     const {todoList, setTodoList} = useTodo();
     
-    
-    
     const removeTodo = id => {
         const newtodoList = [...todoList].filter(item => item.id !== id);
         setTodoList(newtodoList);
@@ -50,7 +48,6 @@ function TodoListSection(props) {
 
     
     const handleSwitchCategory = name =>{
-        
         setCurrentCategory(name)
         name === 'all' ? setCurrentList(todoList) : setCurrentList(filteredList)
     }

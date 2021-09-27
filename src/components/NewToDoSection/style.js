@@ -11,7 +11,7 @@ export const Container = styled.div`
     align-items:center;
     padding: 50px 0;
 `;
-export const FormBox = styled.form`
+export const Form = styled.form`
     display:flex;
     justify-content:center;
     align-items:center;
@@ -20,7 +20,7 @@ export const FormBox = styled.form`
     
     transition: all 0.3s ease-in-out;
 `;
-export const SelectCategory = styled.div`
+export const CategoryOptions = styled.div`
   
 `;
 export const Option = styled.button`
@@ -45,7 +45,7 @@ export const Option = styled.button`
         }
     }
 `;
-export const TaskInput  = styled.input`
+export const TodoInput  = styled.input`
     height:25px;
     width:300px;
     background:#E9FFF9;
@@ -79,10 +79,10 @@ export const Label = styled.label`
         transform: ${props => props.checked ? '': 'scale(1.2)'}
     }
 `;
-export const AddCheck = styled.input`
+export const OpenFormInput = styled.input`
     display:none;
     
-    &:checked ~ ${FormBox}{
+    &:checked ~ ${Form}{
         opacity: 100%;
         visibility:visible;
         transform: translateY(15px);
@@ -97,7 +97,12 @@ export const Button = styled.button`
     color : #fff;
 
     &:hover {
-        color : ${props=>props.hoverColor}
+        &#submit{
+            color : #18E038;
+        }
+        &#cancel{
+            color: #EE6352;
+        }  
     }
     
 `;
