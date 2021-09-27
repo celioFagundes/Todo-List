@@ -4,84 +4,84 @@ export const Wrapper = styled.div`
   padding: 15px 0;
 `;
 
-
 export const Categories = styled.div`
-    display:flex;
-    justify-content:flex-start;
-    align-items:center;
-    margin-bottom:15px;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  margin-bottom:15px;
 `;
 
 export const Option = styled.button`
-    background:transparent;
-    border:0;
-    border-bottom:2px solid transparent;
-    height:38px;
-    margin: 0 10px;
-    color: hsl(228, 34%, 66%);
-    font-weight:600;
-    font-size:16px;
-    cursor:pointer;
+  height:38px;
+  background:transparent;
+  margin: 0 10px;
+  color: hsl(228, 34%, 66%);
+  font-weight:600;
+  font-size:16px;
+  border:0;
+  border-bottom:2px solid transparent;
+  cursor:pointer;
 
-    &.onFocus{    
-      color:hsl(0, 0%, 100%);
-      border-color: hsl(0, 0%, 100%);      
-    }
+  &.onFocus{    
+    color:hsl(0, 0%, 100%);
+    border-color: hsl(0, 0%, 100%);      
+  }
 `;
 
 export const ListSection = styled.div`
-  
   display:flex;
   justify-content:flex-start;
   align-items:center;
   flex-wrap:wrap;
-  border-radius:5px;
   padding:10px 15px;
   margin-right:20px;
+  border-radius:5px;
   
 `;
 
 export const Label = styled.label`
-  position: relative;
-  opacity: ${props => props.important ? '100%' : '0%'};
-  left: ${props=> props.important ? '-40px': '-20px'};
-  color : ${props=> props.important ? 'hsl(356, 69%, 56%)': '#E1EFE6'};
-  transition: 0.3s;
+  position: absolute;
+  top:10px;
+  left: ${props=> props.important ? '-30px': '-10px'};
   padding-right:5px;
+  color : ${props=> props.important ? 'hsl(356, 69%, 56%)': '#E1EFE6'};
+  opacity: ${props => props.important ? '100%' : '0%'};
+  transition: 0.3s;
   cursor:pointer;
-  
+
   &:hover{
     color: hsl(356, 69%, 56%);
-    
   }
 `;
 
-export const ButtonsBox = styled.div`
+export const ButtonsContainer = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  position:relative;
+  position:absolute;
+  top:40px;
+  left:-20px;
   opacity: 0%;
   transition: 0.3s;
-  left:-20px;
 `;
 
-export const  TodoBox  = styled.div`
-  background-color: hsl(228, 28%, 20%);
+export const  TodoContainer  = styled.div`
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   align-items:flex-start;
-  margin-right:40px;
-  margin-bottom:15px;
+  position:relative;
   height: 180px;
   width:200px;
   padding:10px;
+  margin-right:40px;
+  margin-bottom:15px;
+  background-color: hsl(228, 28%, 20%);
+  color: hsl(0, 0%, 100%);
+  font-weight:600;
   border-radius:3px 3px 2px 2px;
   border-top:3px solid;
-  font-weight:600;
-  color: hsl(0, 0%, 100%);
   cursor:pointer;
 
   &.health{
@@ -96,55 +96,69 @@ export const  TodoBox  = styled.div`
   &:hover{
     background-color: #333a56;
   }
-  &:hover ${ButtonsBox}{
-    left: -55px;
+  &:hover ${ButtonsContainer}{
+    left: -45px;
     opacity: 100%;
   }
   &:hover ${Label}{
-    left: -40px;
+    left: -30px;
     opacity: 100%;
   }  
 `;
 
-export const ImportantCheck = styled.input`
+export const ImportantToggle = styled.input`
   display:none;
 `;
 
 export const EditInput = styled.textarea`
-
   position:absolute;
   top:5px;
   height:150px;
-  font-size:16px;
   width:180px;
-  text-decoration:none;
   background-color:transparent;
-  border:0;
+  text-decoration:none;
+  font-size:16px;
   color:white;
-  
   outline:none;
-  
+  border:0;
+
   &.element::-webkit-scrollbar { width: 0 !important };
   &.element { overflow: -moz-scrollbars-none; };
   &.element { -ms-overflow-style: none; };
 `;
 export const TodoContent = styled.p`
-  position:relative;
-  left: -20px;
-  word-break:break-all;
+  width:180px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  
 `;
 const buttons = css`
-  background-color : transparent;
-  border: 0;
-  color: hsl(0, 0%, 100%);
   padding:0 15px;
-
+  background-color : transparent;
+  color: hsl(0, 0%, 100%);
+  border: 0;
   cursor:pointer;
+  
   &:hover{
-    color : ${props=> props.hoverColor}
+    &.confirm{
+      color : #18E038
+    }
+    &.cancel{
+      color : #EE6352
+    }
+    &.edit{
+      color : #FFBC0A
+    }
+    &.delete{
+      color : #D05353
+    } 
   }
 `
-export const RemoveButton = styled.button`
+export const DeleteButton = styled.button`
   ${buttons}
 `;
 export const ConfirmEdit = styled.button`
@@ -158,11 +172,4 @@ export const EditButton = styled.button`
 `;
 
 
-export const Box = styled.div`
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  position:relative;
-  
-  
-`;
+

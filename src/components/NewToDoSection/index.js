@@ -118,7 +118,8 @@ export default function NewTodoSection(props) {
                     type = 'text' 
                     onChange={handleChange} 
                     value ={newTodo} 
-                    placeholder = 'Create a new todo'/>
+                    placeholder = 'Create a new todo'
+                    maxLength = {130}/>
                     <Button id = 'submit' type = 'submit'>
                         <AiOutlineCheck   size = {22}/>
                     </Button>
