@@ -13,8 +13,9 @@ export default function NewTodoSection(props) {
     const {todoList,setTodoList} = useTodo();
     const [newTodo,setNewTodo] = useState('')
     const [todoCategory, setTodoCategory] = useState('')
-    const [checked,setChecked] = useState(false)
+    const [checked,setChecked] = useState(false) // Used to display the to-do form
 
+    // Get to-do list saved on LocalStorage
     useEffect(() =>{
         const temp = localStorage.getItem('todoList')
         const todoListCarregada = JSON.parse(temp)
@@ -23,11 +24,13 @@ export default function NewTodoSection(props) {
         }
     }, [setTodoList])
 
+    // Update to-do list saved on LocalStorage
     useEffect(() =>{
         const temp = JSON.stringify(todoList)
         localStorage.setItem('todoList',temp)
     },[todoList,setTodoList])
 
+    // Get id saved on LocalStorage
     useEffect(()=>{
         const tempId = localStorage.getItem('currentId')
         const lastId = JSON.parse(tempId)
@@ -36,6 +39,7 @@ export default function NewTodoSection(props) {
         }
     },[setId])
 
+    // Update id saved on LocalStorage
     useEffect(() =>{
         const tempId = JSON.stringify(id)
         localStorage.setItem('currentId',tempId)
@@ -75,9 +79,7 @@ export default function NewTodoSection(props) {
         setChecked(false)
     }
     const handleSelectedCategory = type =>{  
-        setTodoCategory(type)
-                
-        
+        setTodoCategory(type)  
     }
     return (
         <Wrapper >

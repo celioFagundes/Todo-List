@@ -5,13 +5,13 @@ import {AiFillEdit, AiFillDelete, AiOutlineCheck,AiOutlineClose, AiFillPushpin} 
 import {Wrapper , ListSection, TodoContainer, ImportantToggle, EditInput, TodoContent,DeleteButton, ConfirmEdit,CancelEdit,EditButton, ButtonsContainer,Label,Categories, Option } from './style'
 
 function TodoListSection(props) {
-
-    const [currentList,setCurrentList] = useState([])
-    const [filteredList,setFilteredList] = useState('');
+    const {todoList, setTodoList} = useTodo() // Default to-do list 
+    const [currentList,setCurrentList] = useState([]) // Current list displayed on screen
+    const [filteredList,setFilteredList] = useState(''); // Filtered list by category
     const [currentCategory,setCurrentCategory] = useState('all')
-    const [editingTodo, setEditingTodo] = useState(null)
+    const [editingTodo, setEditingTodo] = useState(null)  
     const [editedTodo,setEditedTodo] = useState('')
-    const {todoList, setTodoList} = useTodo();
+    
     
     const deleteTodo = id => {
         const newtodoList = [...todoList].filter(item => item.id !== id);
@@ -57,22 +57,22 @@ function TodoListSection(props) {
 
     const handleSwitchCategory = name =>{
         setCurrentCategory(name)
-        name === 'all' ? setCurrentList(todoList) : setCurrentList(filteredList)
+        
     }
 
+    // After switching current category, updates the filtered list so it shows the current category
     useEffect(() => {
+
         const newList = [...todoList].filter(item => item.category === currentCategory)
         setFilteredList(newList)
+        
     }, [setFilteredList,currentCategory,todoList,])
 
+    // Sets current list
     useEffect(() => {
-        
-        if(currentCategory === 'all'){
-            setCurrentList(todoList)
-        }
-        else{
-            setCurrentList(filteredList)
-        }
+
+        currentCategory === 'all' ? setCurrentList(todoList) : setCurrentList(filteredList)
+
     }, [todoList,filteredList,currentCategory])
 
     return (
