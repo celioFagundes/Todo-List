@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { useTodo } from '../TodoContext';
-import { Wrapper ,Container,CategoryOptions ,Form,Option, Label,TodoInput, Button,OpenFormInput} from './style';
+import { Wrapper ,Container,CategoryOptions ,Form,Option, Label,TodoInput, Button,OpenFormInput,ButtonsContainer} from './style';
 
 import {FaHeartbeat} from 'react-icons/fa';
 import {IoIosBusiness} from 'react-icons/io';
@@ -120,12 +120,14 @@ export default function NewTodoSection(props) {
                     value ={newTodo} 
                     placeholder = 'Create a new todo'
                     maxLength = {130}/>
-                    <Button id = 'submit' type = 'submit'>
-                        <AiOutlineCheck   size = {22}/>
-                    </Button>
-                    <Button id = 'cancel' type ='button' onClick = {handleCancel}>
-                        <AiOutlineClose size = {22} />
-                    </Button>
+                    <ButtonsContainer>
+                        <Button id = 'submit' type = 'submit'>
+                            <AiOutlineCheck   size = {22}/>
+                        </Button>
+                        <Button id = 'cancel' type ='button' onClick = {handleCancel}>
+                            <AiOutlineClose size = {22} />
+                        </Button>
+                    </ButtonsContainer>
                 </Form>
             </Container>
         </Wrapper>

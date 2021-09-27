@@ -10,6 +10,7 @@ export const Container = styled.div`
     justify-content:flex-end;
     align-items:center;
     padding: 50px 0;
+    
 `;
 export const Form = styled.form`
     display:flex;
@@ -17,11 +18,15 @@ export const Form = styled.form`
     align-items:center;
     visibility:hidden;
     opacity:0;
-    
     transition: all 0.3s ease-in-out;
+    @media (max-width: 500px){
+        flex-direction:column;
+    }
 `;
 export const CategoryOptions = styled.div`
-  
+    @media (max-width: 500px){
+        align-self:flex-start;
+    }
 `;
 export const Option = styled.button`
     background:transparent;
@@ -42,7 +47,12 @@ export const Option = styled.button`
         }
         &.work{
             color:hsl(203, 89%, 53%);
-        }
+        }    
+    }
+    @media (max-width: 500px){
+        margin-left:0;
+        
+
     }
 `;
 export const TodoInput  = styled.input`
@@ -60,8 +70,12 @@ export const TodoInput  = styled.input`
     ::placeholder{
         color: #1D3354;
         font-weight:normal;
+    }
+    @media (max-width: 500px){
+        margin:10px 0;
         
     }
+
 `;
 export const Label = styled.label`
     display:flex;
@@ -105,5 +119,10 @@ export const Button = styled.button`
         }  
     }
     
+`;
+export const ButtonsContainer = styled.div`
+  @media (max-width: 500px){
+        align-self:flex-start;
+    }
 `;
 

@@ -2,6 +2,10 @@ import styled ,{css}from 'styled-components';
 
 export const Wrapper = styled.div`
   padding: 15px 0;
+
+  @media (max-width: 1024px){
+    padding:15px 20px;
+  }
 `;
 
 export const Categories = styled.div`
@@ -36,6 +40,11 @@ export const ListSection = styled.div`
   padding:10px 15px;
   margin-right:20px;
   border-radius:5px;
+  @media (max-width: 570px){
+    margin-left:30px;
+    margin-right:0;
+    justify-content:center;
+  }
   
 `;
 
