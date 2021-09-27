@@ -1,12 +1,11 @@
 # To-do list app
 
-<img src="https://user-images.githubusercontent.com/77676047/134981911-be9e3768-0662-4da2-be18-934b9056e24d.jpeg" >
+<img src="https://user-images.githubusercontent.com/77676047/134990760-4910871b-e03f-48c6-8474-09daa20bc9f3.jpeg" >
 
 ### About
   To-do list app created using ReactJS and styled components
 
 ### Functionalities
-
 - Create, delete and edit a to-do
 - Select between three categories: health, home and work
 - Use the pin icon to fix importants to-dos in the beginning of the list
